@@ -14,6 +14,19 @@ var OUTPUT_DIR = "./build/js";
 var OUTPUT_FILE = "bundle.js";
 var DELAY = 50;
 
+
+gulp.task("sass-2-css", function () {
+
+    gulp.src('./src/scss/**/*.scss')
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(concat('style.css'))
+    .pipe(uglifycss())
+    .pipe(gulp.dest('build/css'));
+
+});
+
+
 gulp.task("watch", function () {
     var b = browserify({ entries: [ ENTRY_FILE ] }).transform(babelify);
 
@@ -39,4 +52,8 @@ gulp.task("serve", function () {
     });
 });
 
-gulp.task("default", [ "watch", "serve" ]);
+gulp.task("css-watch", function() {
+  gulp.watch(["./src/scss/**/*.scss"],["sass-2-css"]);
+});
+
+gulp.task("default", [ "watch", "serve", "css-watch"]);

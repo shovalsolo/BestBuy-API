@@ -1,3 +1,6 @@
+import {carousel} from "./carousel";
+
+
 export default obj => {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();

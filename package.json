@@ -1,7 +1,6 @@
 {
   "name": "es2015",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,8 +16,23 @@
     "gulp-babel": "^6.1.2",
     "gulp-connect": "^5.0.0",
     "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglyfly": "^1.4.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
-  }
+  },
+  "dependencies": {
+    "gulp-uglifycss": "^1.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shovalsolo/project4.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shovalsolo/project4/issues"
+  },
+  "homepage": "https://github.com/shovalsolo/project4#readme",
+  "description": ""
 }
