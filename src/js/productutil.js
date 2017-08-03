@@ -4,12 +4,25 @@ export default class{
     }
 
     addToCart(sku,price){
-        var p = price;
-        var s = sku;
         
+        var cart = {price:price, qty:0 };
+        let item  = JSON.parse(sessionStorage.getItem(sku));
 
-        console.log(sku);
-        console.log(price);
+        
+    //adding to sessionStorage after converting to string
+    if(typeof(Storage)!==undefined){
+
+        if(item==null){
+            cart.qty =1;
+        }
+            else{
+            cart.qty= item.qty +1;
+            } 
+        }
+        else{
+            console.log("your browser is not supporting session Storage")
+        }
+        sessionStorage.setItem(sku , JSON.stringify(cart));
     }
 }
 

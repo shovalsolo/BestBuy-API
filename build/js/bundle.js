@@ -34,14 +34,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (obj) {
-            //return new Promise ((resolve,reject) =>{
 
             for (var i = 0; i < obj.length; i++) {
 
-                        //console.log(obj[i]);
-                        //console.log(obj[i].albumTitle + " " + obj[i].manufacturer + " " + obj[i].modelNumber + " " + obj[i].mediumImage + " " + obj[i].includedItemList[0].includedItem);
-
-                        var title = obj[i].albumTitle;
                         var manufacturer = obj[i].manufacturer;
                         var largeImage = obj[i].largeImage;
                         var includedItem = obj[i].includedItemList[0].includedItem;
@@ -69,7 +64,7 @@ exports.default = function (obj) {
                         btn.setAttribute("data-price", price);
                         node.appendChild(btn);
 
-                        node.setAttribute("id", "caro");
+                        node.setAttribute("class", "caro");
                         node.style.backgroundImage = "url('" + largeImage + "')";
                         node.style.backgroundRepeat = "no-repeat";
                         node.style.height = '50vh';
@@ -91,9 +86,6 @@ exports.default = function (obj) {
                         // node.appendChild (actualprice);
                         // actualprice.innerHTML= price;
             }
-
-            //});
-
 };
 
 var _index = require("./index");
@@ -130,11 +122,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+//import categoryutil from "./categoryutil";
+
+
 var App = function () {
 	function App() {
 		_classCallCheck(this, App);
 
-		//$(".caro" ).remove();
+		this.baseurl = "https://api.bestbuy.com/v1/products";
+		this.url = "https://api.bestbuy.com/v1/products";
+		//$(".content" ).remove();
+		this.category();
 		this.initBBCall();
 	}
 
@@ -143,10 +141,14 @@ var App = function () {
 		value: function initBBCall() {
 			var _this = this;
 
-			(0, _bestbuy2.default)({ url: "https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))", api: "8ccddf4rtjz5k5btqam84qak" }).then(function (data) {
+			(0, _bestbuy2.default)({ url: this.url, api: "8ccddf4rtjz5k5btqam84qak" })
+			//request({url: "https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))",api : "8ccddf4rtjz5k5btqam84qak"})
+			.then(function (data) {
 				(0, _carousel2.default)(data.products);
 
 				_this.addToCart();
+				//this.category();
+
 
 				/* fill carosel with products */
 			}).catch(function (error) {
@@ -155,10 +157,39 @@ var App = function () {
 			});
 		}
 	}, {
+		key: "category",
+		value: function category() {
+			var _this2 = this;
+
+			// Listen for click on category .category when li is clicked then retrive value for sku and price
+			// init new categoryutil().category() pass both sku and price
+			//-------------------java-script--------------------
+
+			// var selected = document.getElementsByClassName("category");
+			// for (var i = 0; i < selected.length; i++){
+			//    selected[i].addEventListener("click", (e) =>  {
+			// 	   var selectedCategory = e.target.getAttribute("category-data");
+			//        new categoryutil().category(selectedCategory);
+			//    });
+			// }
+
+
+			$(".option").on("click", function (e) {
+				//getting the button id when clicking on the button
+				var target = e.target.value;
+				//setting a param and getting the value from the button that is the id of the link 
+				_this2.url = _this2.baseurl + target;
+				//concatinating the url with the base url and the value fron the button data
+				_this2.initBBCall();
+				//calling the initBBcall to call the api
+			});
+		}
+	}, {
 		key: "addToCart",
 		value: function addToCart() {
 			// Listen for any click that happens on .atc when button is clicked then retrive value for sku and price
 			// init new productutil().addToCart() pass both sku and price
+
 			//-----------------jquery-------------------------
 			// $(".atc").on("click",  function(){
 
@@ -166,6 +197,7 @@ var App = function () {
 			// 	var price = $(this).attr('data-price');
 			// 	new productutil().addToCart(sku,price);
 			// });
+
 			//-------------------java-script--------------------
 			var adding = document.getElementsByClassName("atc");
 			for (var i = 0; i < adding.length; i++) {
@@ -192,6 +224,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -206,11 +240,22 @@ var _class = function () {
     _createClass(_class, [{
         key: "addToCart",
         value: function addToCart(sku, price) {
-            var p = price;
-            var s = sku;
 
-            console.log(sku);
-            console.log(price);
+            var cart = { price: price, qty: 0 };
+            var item = JSON.parse(sessionStorage.getItem(sku));
+
+            //adding to sessionStorage after converting to string
+            if ((typeof Storage === "undefined" ? "undefined" : _typeof(Storage)) !== undefined) {
+
+                if (item == null) {
+                    cart.qty = 1;
+                } else {
+                    cart.qty = item.qty + 1;
+                }
+            } else {
+                console.log("your browser is not supporting session Storage");
+            }
+            sessionStorage.setItem(sku, JSON.stringify(cart));
         }
     }]);
 

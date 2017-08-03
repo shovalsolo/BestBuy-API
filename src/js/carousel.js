@@ -1,14 +1,9 @@
 import index from "./index";
 
 export default function(obj){
-    //return new Promise ((resolve,reject) =>{
 
         for (var i=0; i<obj.length ; i++){
 
-            //console.log(obj[i]);
-            //console.log(obj[i].albumTitle + " " + obj[i].manufacturer + " " + obj[i].modelNumber + " " + obj[i].mediumImage + " " + obj[i].includedItemList[0].includedItem);
-
-            let title = obj[i].albumTitle;
             let manufacturer = obj[i].manufacturer;
             let largeImage = obj[i].largeImage;
             let includedItem = obj[i].includedItemList[0].includedItem;
@@ -39,7 +34,7 @@ export default function(obj){
             btn.setAttribute("data-price",price);
             node.appendChild(btn);
 
-            node.setAttribute("id","caro");
+            node.setAttribute("class","caro");
             node.style.backgroundImage = "url('" + largeImage + "')";
             node.style.backgroundRepeat="no-repeat";
             node.style.height = '50vh';
@@ -62,8 +57,5 @@ export default function(obj){
             // actualprice.innerHTML= price;
 
         }
- 
-    //});
-
     
 }

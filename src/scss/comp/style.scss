@@ -1,18 +1,16 @@
-@import 'reset';
-@import 'links';
+/*@import 'links';
 @import 'text';
 @import 'color';
 @import 'flex';
 @import 'font';
 @import 'responsive';
-
+@import 'reset';*/
 
 /*-------------------scss----------------------------------*/
 
 body{
-	background-color: black;
-	color: white;
-
+	background-color: white;
+	color: black;
 }
 
 .select-section{
