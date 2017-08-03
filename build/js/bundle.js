@@ -69,8 +69,6 @@ exports.default = function (obj) {
                         btn.setAttribute("data-price", price);
                         node.appendChild(btn);
 
-                        //<button class=“atc” data-sku="${sku}" data-price="${price}"> Add to Cart </button>`;
-
                         node.setAttribute("id", "caro");
                         node.style.backgroundImage = "url('" + largeImage + "')";
                         node.style.backgroundRepeat = "no-repeat";
@@ -159,31 +157,24 @@ var App = function () {
 	}, {
 		key: "addToCart",
 		value: function addToCart() {
-			// Listen for any click that happens on .atc
-			// when button is clicked then retrive value for sku and price
-			// init new productutil().addToCart();
-			// pass both sku and price
+			// Listen for any click that happens on .atc when button is clicked then retrive value for sku and price
+			// init new productutil().addToCart() pass both sku and price
+			//-----------------jquery-------------------------
+			// $(".atc").on("click",  function(){
 
-			$(".atc").on("click", function () {
-				//console.log($("button").data());
-
-				var sku = $(this).attr('data-sku');
-				var price = $(this).attr('data-price');
-				new _productutil2.default().addToCart(sku, price);
-
-				/*
-    //let add = this.text();
-    console.log('hello');
-    new productutil().addToCart();
-    console.log($(this).text());
-    console.log("hello"); 
-    */
-			});
-
-			//let test = $(".atc").val();
-			//console.log(test);
-			//new productutil().addToCart(add);
-			//new productutil().addToCart(test);
+			// 	var sku = $(this).attr('data-sku');
+			// 	var price = $(this).attr('data-price');
+			// 	new productutil().addToCart(sku,price);
+			// });
+			//-------------------java-script--------------------
+			var adding = document.getElementsByClassName("atc");
+			for (var i = 0; i < adding.length; i++) {
+				adding[i].addEventListener("click", function (e) {
+					var sku = e.target.getAttribute("data-sku");
+					var price = e.target.getAttribute("data-price");
+					new _productutil2.default().addToCart(sku, price);
+				});
+			}
 		}
 	}]);
 

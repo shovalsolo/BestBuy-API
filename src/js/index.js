@@ -31,31 +31,28 @@ export default class App{
 	}
 
 	addToCart(){
-		// Listen for any click that happens on .atc
-			// when button is clicked then retrive value for sku and price
-			// init new productutil().addToCart();
-			// pass both sku and price
-		
-		$(".atc").on("click",  function(){
-			//console.log($("button").data());
+		// Listen for any click that happens on .atc when button is clicked then retrive value for sku and price
+		// init new productutil().addToCart() pass both sku and price
+		//-----------------jquery-------------------------
+		// $(".atc").on("click",  function(){
 			
-			var sku = $(this).attr('data-sku');
-			var price = $(this).attr('data-price');
-			new productutil().addToCart(sku,price);
-			
-			/*
-			//let add = this.text();
-			console.log('hello');
-			new productutil().addToCart();
-			console.log($(this).text());
-			console.log("hello"); 
-			*/
-		});
+		// 	var sku = $(this).attr('data-sku');
+		// 	var price = $(this).attr('data-price');
+		// 	new productutil().addToCart(sku,price);
+		// });
+		//-------------------java-script--------------------
+		let adding = document.getElementsByClassName("atc");
+        for (var i = 0; i < adding.length; i++){
+           adding[i].addEventListener("click", (e) =>  {
+               let sku = e.target.getAttribute("data-sku");
+               let price = e.target.getAttribute("data-price");
+               new productutil().addToCart(sku,price);
+           });
+        }
 
-		//let test = $(".atc").val();
-		//console.log(test);
-		//new productutil().addToCart(add);
-		//new productutil().addToCart(test);
+
+
+
 	}
 }
 let x = new App;

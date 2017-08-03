@@ -27,7 +27,7 @@ export default function(obj){
             //---------------------------------------
 
             let node=document.createElement("div");
-           
+            
             node.innerHTML = `
             <h4> ${manufacturer} </h4>
             <h6> ${includedItem} </h6>
@@ -38,8 +38,6 @@ export default function(obj){
             btn.setAttribute("data-sku",sku);
             btn.setAttribute("data-price",price);
             node.appendChild(btn);
-
-            //<button class=“atc” data-sku="${sku}" data-price="${price}"> Add to Cart </button>`;
 
             node.setAttribute("id","caro");
             node.style.backgroundImage = "url('" + largeImage + "')";
