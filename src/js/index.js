@@ -12,9 +12,9 @@ export default class App{
 	constructor(){
 		this.baseurl = "https://api.bestbuy.com/v1/products";
         this.url = "https://api.bestbuy.com/v1/products";
-		//$(".content" ).remove();
 		this.category();
 		this.initBBCall();
+		this.x = new productutil();
 		
 	}
 	
@@ -57,6 +57,8 @@ export default class App{
 			//setting a param and getting the value from the button that is the id of the link 
 			this.url = this.baseurl + target;
 			//concatinating the url with the base url and the value fron the button data
+			$(".caro" ).remove();
+			//
 			this.initBBCall();
 			//calling the initBBcall to call the api
 		});
@@ -81,7 +83,7 @@ export default class App{
            adding[i].addEventListener("click", (e) =>  {
                let sku = e.target.getAttribute("data-sku");
                let price = e.target.getAttribute("data-price");
-               new productutil().addToCart(sku,price);
+               this.x.addToCart(sku,price);
            });
         }
 	}

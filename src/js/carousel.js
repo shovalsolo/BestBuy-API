@@ -6,7 +6,8 @@ export default function(obj){
 
             let manufacturer = obj[i].manufacturer;
             let largeImage = obj[i].largeImage;
-            let includedItem = obj[i].includedItemList[0].includedItem;
+            //let includedItem = obj[i].includedItemList[0].includedItem;
+            let includedItem = "test";
             let url = obj[i].url;
             let addToCartUrl = obj[i].addToCartUrl;
             let price= obj[i].regularPrice;

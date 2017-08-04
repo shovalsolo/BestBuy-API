@@ -39,7 +39,8 @@ exports.default = function (obj) {
 
                         var manufacturer = obj[i].manufacturer;
                         var largeImage = obj[i].largeImage;
-                        var includedItem = obj[i].includedItemList[0].includedItem;
+                        //let includedItem = obj[i].includedItemList[0].includedItem;
+                        var includedItem = "test";
                         var url = obj[i].url;
                         var addToCartUrl = obj[i].addToCartUrl;
                         var price = obj[i].regularPrice;
@@ -131,9 +132,9 @@ var App = function () {
 
 		this.baseurl = "https://api.bestbuy.com/v1/products";
 		this.url = "https://api.bestbuy.com/v1/products";
-		//$(".content" ).remove();
 		this.category();
 		this.initBBCall();
+		this.x = new _productutil2.default();
 	}
 
 	_createClass(App, [{
@@ -180,6 +181,8 @@ var App = function () {
 				//setting a param and getting the value from the button that is the id of the link 
 				_this2.url = _this2.baseurl + target;
 				//concatinating the url with the base url and the value fron the button data
+				$(".caro").remove();
+				//
 				_this2.initBBCall();
 				//calling the initBBcall to call the api
 			});
@@ -187,6 +190,8 @@ var App = function () {
 	}, {
 		key: "addToCart",
 		value: function addToCart() {
+			var _this3 = this;
+
 			// Listen for any click that happens on .atc when button is clicked then retrive value for sku and price
 			// init new productutil().addToCart() pass both sku and price
 
@@ -204,7 +209,7 @@ var App = function () {
 				adding[i].addEventListener("click", function (e) {
 					var sku = e.target.getAttribute("data-sku");
 					var price = e.target.getAttribute("data-price");
-					new _productutil2.default().addToCart(sku, price);
+					_this3.x.addToCart(sku, price);
 				});
 			}
 		}
@@ -232,9 +237,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var _class = function () {
     function _class() {
-        // console.log("12 work");
-
         _classCallCheck(this, _class);
+
+        // console.log("12 work");
+        this.total = 0;
+        this.amount = 0;
     }
 
     _createClass(_class, [{
@@ -248,9 +255,17 @@ var _class = function () {
             if ((typeof Storage === "undefined" ? "undefined" : _typeof(Storage)) !== undefined) {
 
                 if (item == null) {
+                    //
                     cart.qty = 1;
                 } else {
                     cart.qty = item.qty + 1;
+                    //document.getElementsByClassName("counter").innerHTML=cart.qty;
+                    //$(".counter").html(cart.qty)
+                    //cart.amount = item.price + price; 
+                    this.total += cart.qty;
+                    this.amount = cart.price * cart.qty;
+                    console.log(this.amount);
+                    $(".counter").html(this.total);
                 }
             } else {
                 console.log("your browser is not supporting session Storage");

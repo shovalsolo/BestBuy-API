@@ -64,4 +64,4 @@ gulp.task("sass-2-css", function () {
 
 //(1) a task that is runinng when typing gulp and running "watch", "serve", "css-watch" tasks
 
-gulp.task("default", [ "watch", "serve", "css-watch"]);
+gulp.task("default", [ "watch", "serve"]);

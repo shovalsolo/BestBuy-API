@@ -1,29 +1,41 @@
 export default class{
     constructor(){
        // console.log("12 work");
+       this.total = 0;
+       this.amount = 0;
     }
 
     addToCart(sku,price){
         
         var cart = {price:price, qty:0 };
-        let item  = JSON.parse(sessionStorage.getItem(sku));
+        var item  = JSON.parse(sessionStorage.getItem(sku));
 
         
     //adding to sessionStorage after converting to string
     if(typeof(Storage)!==undefined){
 
         if(item==null){
+            //
             cart.qty =1;
         }
             else{
             cart.qty= item.qty +1;
+            //document.getElementsByClassName("counter").innerHTML=cart.qty;
+            //$(".counter").html(cart.qty)
+            //cart.amount = item.price + price; 
+            this.total+= cart.qty;
+            this.amount = cart.price * cart.qty;
+            console.log(this.amount);
+            $(".counter").html(this.total);
             } 
         }
         else{
             console.log("your browser is not supporting session Storage")
         }
         sessionStorage.setItem(sku , JSON.stringify(cart));
+
     }
+
 }
 
 
