@@ -54,16 +54,20 @@ button{
 	
 }
 button:hover{
-		color:#204734;
-		
+		color:#204734;	
 	}
 	
+.btnShop {
+	background: #50846d;
+	padding: 1rem 3rem 1rem 3rem;
+}	
+
 .subbtn{
-	background-color: #97b1a6;
+	background-color:#50846d ;
 	padding: 0;
 	border: none;
 	color:white;
-	
+	padding :0.5rem 5rem;
 }
  
 
@@ -76,4 +80,5 @@ button:hover{
 	width: 25rem;
 	padding :5px;
 }
+
 

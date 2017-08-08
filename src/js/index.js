@@ -15,6 +15,7 @@ export default class App{
 		this.category();
 		this.initBBCall();
 		this.x = new productutil();
+		this.showCart();
 		
 	}
 	
@@ -93,8 +94,6 @@ export default class App{
 		// });
 
 	}
-
-	
 
 }
 let x = new App;
