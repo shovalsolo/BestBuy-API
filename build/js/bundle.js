@@ -233,10 +233,10 @@ var _class = function () {
     function _class() {
         _classCallCheck(this, _class);
 
-        // console.log("12 work");
         this.total = 0; //will be the counter of the quantity of all items 
         this.amount = 0; //will be the sum of the same item
-        //this.getTotal();
+        this.totalQty = 0;
+        this.totalPrice = 0;
     }
 
     _createClass(_class, [{
@@ -251,87 +251,80 @@ var _class = function () {
             if ((typeof Storage === "undefined" ? "undefined" : _typeof(Storage)) !== undefined) {
 
                 if (item == null) {
-                    //
-                    cart.qty = 1;
-                    this.total = 1;
-                    this.amount = cart.price * cart.qty;
-                    console.log("cart qty " + cart.qty);
-                    console.log("amounty " + this.amount);
-                    $(".totals").html("the total amount is : " + this.amount);
 
-                    //console.log("total "+this.total);
-                    //$(".counter").html(this.total);
+                    cart.qty = 1;
+                    //this.total = 1;
+                    this.amount = cart.price * cart.qty;
+                    //console.log("cart qty "+ cart.qty);
+                    //console.log("amounty "+ this.amount);
+
+                    $(".sku").html(sku);
+                    $(".quantity").html(cart.qty);
+                    $(".total-amount").html(this.amount);
                 } else {
                     cart.qty = item.qty + 1;
                     this.amount = cart.price * cart.qty;
-                    console.log("cart qty " + cart.qty);
-                    console.log("amounty " + this.amount);
-                    $(".totals").html("the total amount is : " + this.amount);
+                    //console.log("cart qty "+ cart.qty);
+                    //console.log("amounty "+ this.amount);
 
-                    //document.getElementsByClassName("counter").innerHTML=cart.qty;
-                    //$(".counter").html(cart.qty)
-                    //cart.amount = item.price + price;
-
-
-                    ////let diff= cart.qty - item.qty; 
-                    ////this.total+= cart.qty;
-                    ////$(".counter").html(this.total);
+                    $(".sku").html(sku);
+                    $(".quantity").html(cart.qty);
+                    $(".total-amount").html(this.amount);
                 }
             } else {
                 console.log("your browser is not supporting session Storage");
             }
             sessionStorage.setItem(sku, JSON.stringify(cart));
-            this.getTotal(cart.qty);
+            this.getTotalQty();
+            this.getTotalPrice();
         }
     }, {
-        key: "getTotal",
-        value: function getTotal(qty) {
-            var cartTotal = qty;
-            console.log("cart Total " + cartTotal);
-            for (var i = 0; i < localStorage.length; i++) {
-                var key = sessionStorage.getItem(sessionStorage.key(i));
-                this.total = this.total + sessionStorage.getItem(sessionStorage.key(i).qty);
-                console.log("total in cart" + this.total);
-                $(".counter").html(cartTotal);
+        key: "getTotalQty",
+        value: function getTotalQty() {
+            this.totalQty = 0;
+            for (var i = 0; i < sessionStorage.length; i++) {
+
+                if (this.totalQty === 0) {
+                    var x = sessionStorage.key(i);
+                    // x is the key in location i that is actualy the item of the button that clicked 
+                    this.totalQty = JSON.parse(sessionStorage.getItem(x)).qty;
+                    // setting totalQty with the qty from the item after parsing it
+                } else {
+                    var x = sessionStorage.key(i);
+                    this.totalQty += JSON.parse(sessionStorage.getItem(x)).qty;
+                }
+
+                $(".all-quantity").html(this.totalQty);
+                $(".counter").html(this.totalQty);
             }
+        }
+    }, {
+        key: "getTotalPrice",
+        value: function getTotalPrice() {
+            this.totalPrice = 0;
+            for (var i = 0; i < sessionStorage.length; i++) {
+                // if(this.totalPrice === 0 ){
+                //     var p =  sessionStorage.key(i);
+                //     this.totalPrice = parseFloat(JSON.parse(sessionStorage.getItem(p)).price);
+                //     //console.log("this.total = 0");
+                // }
+                // else
+                //     {
+                var p = sessionStorage.key(i);
+
+                var parPrice = parseFloat(JSON.parse(sessionStorage.getItem(p)).price);
+                var parQty = parseFloat(JSON.parse(sessionStorage.getItem(p)).qty);
+                this.totalPrice += parPrice * parQty;
+
+                // }
+            }
+            console.log(this.totalPrice);
+            $(".total-cart").html(this.totalPrice);
         }
     }]);
 
     return _class;
 }();
-
-// function selectApi(id){
-//     var selected = id;
-
-
-//     if (selected == abcat0502000) {
-//         console.log("Laptops");
-//         console.log(selected.id);
-
-//     }else if(selected == pcmcat209400050001){
-//         console.log("Cell phones");
-//         console.log(selected.id);
-
-//     }else if(selected == abcat0101000){
-//         console.log("Television");
-//         console.log(selected.id);
-
-//     }else{
-//         console.log("Headphones");
-//         console.log(selected.id);
-//     }
-
-// }
-
-
-// function selectApi1(p,s){
-//     var price = p;
-//     var sku = s;
-//     console.log(price);
-//     console.log(sku);
-// }
-//export {selectApi,selectApi1};
-
 
 exports.default = _class;
 
