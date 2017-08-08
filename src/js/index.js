@@ -11,7 +11,7 @@ import productutil from "./productutil";
 export default class App{
 	constructor(){
 		this.baseurl = "https://api.bestbuy.com/v1/products";
-        this.url = "https://api.bestbuy.com/v1/products";
+        this.url = "https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))";
 		this.category();
 		this.initBBCall();
 		this.x = new productutil();
@@ -25,10 +25,7 @@ export default class App{
 			carousel(data.products);
 			
 			this.addToCart();
-			//this.category();
 			
-			
-
 			/* fill carosel with products */
 		})
 		.catch(error => {
@@ -85,7 +82,15 @@ export default class App{
                let price = e.target.getAttribute("data-price");
                this.x.addToCart(sku,price);
            });
-        }
+		}
+		
+		// 	$("#productContainer").on("click", ".addButton", (x) =>{
+		// 	let product = new cart;
+		// 	product.sku = $(x.target).data("sku");
+		// 	product.price = $(x.target).data("price");
+		// 	product.addToCart();
+		// });
+
 	}
 
 	

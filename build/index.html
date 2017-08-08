@@ -8,20 +8,24 @@
         <main>
             <section>
             <div class="top">
-                <div class="cart">
-                    <p class="counter"></p>
-                    <img class="icon" src="assets\green-cart.png">
-                    
+                <div class="cart flex flex-jus-spa-bet  ">
+                    <div class="info">
+                        <p class="totals"></p>
+                    </div>
+                    <div>
+                        <p class="counter bor-radius max-wid-ex-sml text-ali-c"></p>
+                        <img class="icon" src="assets\green-cart.png">
+                    </div>
                 </div>
-                <div class="">
-                <h1>WELCOME TO BESTBUY STORE</h1>
-                <p>SHOP HERE FOR SOME REASON</p>
-                <button class="btnShop">SHOP NOW</button>
+                <div class="flex flex-dir-col flex-ali-cen pad-bottom-lar">
+                <h1 class="pad-bottom-med-sml">WELCOME TO BESTBUY STORE</h1>
+                <p class="pad-bottom-med">SHOP HERE FOR SOME REASON</p>
+                <button class="btnShop ">SHOP NOW</button>
                 </div>
             </div>
-            <div class="message">
-                <h1>WE WILL SELL THE SAME STUFF AS BESTBUY,BUT WE'RE BETTER</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+            <div class="message flex flex-dir-col flex-ali-cen text-ali-c pad-sml">
+                <h2 class="pad-up-down">WE WILL SELL THE SAME STUFF AS BESTBUY, BUT WE'RE<span> BETTER</span></h2>
+                <p class="pad-up-down gcolor">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                      when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                      It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
@@ -30,7 +34,7 @@
                 </p>
             </div>
             </section>
-                <div class="category">
+                <div class="category flex flex-jus-spa-aro pad-up-down">
                 <button class="option" value="((categoryPath.id=abcat0502000))">Laptops</button>
                 <button class="option" value="((categoryPath.id=pcmcat209400050001))">Cell Phones</button>
                 <button class="option" value="((categoryPath.id=abcat0101000))">Television</button>
@@ -42,18 +46,18 @@
                 </div>
             </div>
         </main>
-        <section>
-            <div class="footer">
-                <h2>SIGN UP FOR UPDATES</h2>
-                <P>WE WILL NOT STOP EMAILING YOU</P>
+        <footer>
+            <div class="footer flex flex-dir-col flex-ali-cen pad-up-down-lar">
+                <h2 class="pad-bottom-med-sml">SIGN UP FOR UPDATES</h2>
+                <P class="pad-bottom-med">WE WILL NOT STOP EMAILING YOU</P>
                 <div class="sub-box bgcw bor-radius ">
                     <form name="form1">
-                        <input class="subfield" type="text" name="subscribe" value="Your Email">
-                        <input class="subbtn bgcr bor-radius wcolor" type="submit" name="subbtn" value="Subscribe" onclick="ValidateEmail(document.form1.subscribe)"/>
+                        <input class="subfield no-border" type="text" name="subscribe" value="Your Email">
+                        <input class="subbtn bgcr border-right-radius wcolor" type="submit" name="subbtn" value="Subscribe" onclick="ValidateEmail(document.form1.subscribe)"/>
                     </form>
                 </div>
             </div>
-        </section>
+        </footer>
         <script src="js/email-validation.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/bundle.js"></script>

@@ -1,14 +1,15 @@
 export default class{
     constructor(){
        // console.log("12 work");
-       this.total = 0;
-       this.amount = 0;
+       this.total = 0; //will be the counter of the quantity of all items 
+       this.amount = 0; //will be the sum of the same item
+       //this.getTotal();
     }
 
     addToCart(sku,price){
         
-        var cart = {price:price, qty:0 };
-        var item  = JSON.parse(sessionStorage.getItem(sku));
+        var cart = {price:price, qty:0 }; // price of item ant the quantity of the item
+        var item  = JSON.parse(sessionStorage.getItem(sku)); // inserting begining state to item
 
         
     //adding to sessionStorage after converting to string
@@ -17,24 +18,52 @@ export default class{
         if(item==null){
             //
             cart.qty =1;
+            this.total = 1;
+            this.amount = cart.price * cart.qty;
+            console.log("cart qty "+ cart.qty);
+            console.log("amounty "+ this.amount);
+            $(".totals").html("the total amount is : "+this.amount);
+
+            //console.log("total "+this.total);
+            //$(".counter").html(this.total);
+           
         }
             else{
             cart.qty= item.qty +1;
+            this.amount = cart.price * cart.qty;
+            console.log("cart qty "+ cart.qty);
+            console.log("amounty "+ this.amount);
+            $(".totals").html("the total amount is : "+this.amount);
+
             //document.getElementsByClassName("counter").innerHTML=cart.qty;
             //$(".counter").html(cart.qty)
-            //cart.amount = item.price + price; 
-            this.total+= cart.qty;
-            this.amount = cart.price * cart.qty;
-            console.log(this.amount);
-            $(".counter").html(this.total);
+            //cart.amount = item.price + price;
+
+
+            ////let diff= cart.qty - item.qty; 
+            ////this.total+= cart.qty;
+            ////$(".counter").html(this.total);
             } 
         }
         else{
             console.log("your browser is not supporting session Storage")
         }
         sessionStorage.setItem(sku , JSON.stringify(cart));
+        this.getTotal(cart.qty);
 
     }
+
+    getTotal(qty){
+        let cartTotal = qty; 
+        console.log("cart Total "+cartTotal);
+            for (var i = 0; i < localStorage.length; i++){
+                var key = sessionStorage.getItem(sessionStorage.key(i));
+                this.total =  this.total + sessionStorage.getItem(sessionStorage.key(i).qty);
+                console.log("total in cart"+this.total);
+
+            }
+        }
+
 
 }
 

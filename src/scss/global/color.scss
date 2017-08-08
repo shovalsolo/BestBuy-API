@@ -2,7 +2,6 @@
 
 $white-b-c: white;
 
-
 $yellow-b-c: yellow;
 
 $red-b-c: red;
@@ -54,8 +53,27 @@ $color-blue: #0000FF;
 	color: #333;
 }
 
+/*----------Border---------------*/
+
 .border-color-top{
 	border-top: 1px solid gray;	
+}
+
+.no-border{
+	background-color: transparent;
+	border: 0px solid;
+}
+
+.border-right-radius{
+	border-top-right-radius: 2em;
+	border-bottom-right-radius: 2em;
+	
+}
+
+.border-left-radius{
+	border-top-left-radius: 2em;
+	border-bottom-left-radius: 2em;
+	
 }
 
 

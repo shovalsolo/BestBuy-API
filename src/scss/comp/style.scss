@@ -16,7 +16,14 @@ body{
 .icon{
 	width: 5em;
 	
+}
+.cart{
 	
+}
+
+.counter{
+	background-color:#204734;
+	color:white;
 }
 
 .category{
@@ -27,6 +34,18 @@ body{
 	background-color:#acc0b7;
 }
 
+.manufacturer{
+	padding: 0rem 0rem 0.5rem 0rem;
+}
+
+.includedItem{
+	padding: 0rem 0rem 11rem 0em;
+}
+
+.price{
+	padding: 0rem 0rem 0.5rem 0rem;
+}
+
 button{
 	background-color: #61ab8a;
 	padding: 0;
@@ -35,12 +54,17 @@ button{
 	
 }
 button:hover{
-		color:green;
+		color:#204734;
 	}
  
 
 .footer{
 	color:white;
 	background-color: #313131;
+}
+
+.sub-box{
+	width: 25rem;
+	padding :5px;
 }
 

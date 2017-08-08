@@ -3,16 +3,7 @@ import index from "./index";
 export default function(obj){
 
         for (var i=0; i<obj.length ; i++){
-
-            let manufacturer = obj[i].manufacturer;
-            let largeImage = obj[i].largeImage;
-            //let includedItem = obj[i].includedItemList[0].includedItem;
-            let includedItem = "test";
-            let url = obj[i].url;
-            let addToCartUrl = obj[i].addToCartUrl;
-            let price= obj[i].regularPrice;
-            let sku = obj[i].sku
-            
+ 
             //-------------jquery----------------------
             // var newElement = document.createElement("div");
             // $(newElement).css("background", "url("+mediumImage+")");
@@ -21,41 +12,40 @@ export default function(obj){
             // $(newElement).addClass("pop");
             // $(".bxSlider").append(newElement);
             //---------------------------------------
+            if (obj[i].includedItemList.length > 0 && obj[i].manufacturer !== null) {
 
-            let node=document.createElement("div");
+                let manufacturer = obj[i].manufacturer;
+                let largeImage = obj[i].largeImage;
+                let includedItem = obj[i].includedItemList[0].includedItem;
             
-            node.innerHTML = `
-            <h4> ${manufacturer} </h4>
-            <h6> ${includedItem} </h6>
-            <h5> ${price} </h5>`;
-            let btn=document.createElement("button");
-            btn.setAttribute("class","atc");
-            btn.innerHTML = "Add to cart";
-            btn.setAttribute("data-sku",sku);
-            btn.setAttribute("data-price",price);
-            node.appendChild(btn);
+                let url = obj[i].url;
+                let addToCartUrl = obj[i].addToCartUrl;
+                let price= obj[i].regularPrice;
+                let sku = obj[i].sku
 
-            node.setAttribute("class","caro");
-            node.style.backgroundImage = "url('" + largeImage + "')";
-            node.style.backgroundRepeat="no-repeat";
-            node.style.height = '50vh';
-            document.getElementById("slider").appendChild(node);
+                let node=document.createElement("div");
+                
+                node.innerHTML = `
+                <h4 class="manufacturer"> ${manufacturer} </h4>
+                <h6 class="includedItem"> ${includedItem} </h6>
+                <h5 class="price"> ${price} </h5>`;
+                let btn=document.createElement("button");
+                btn.setAttribute("class","atc");
+                btn.innerHTML = "Add to cart";
+                btn.setAttribute("data-sku",sku);
+                btn.setAttribute("data-price",price);
+                node.appendChild(btn);
 
-            // let brand = document.createElement("p");
-            // node.appendChild (brand);
-            // brand.innerHTML= manufacturer;
+                node.setAttribute("class","caro");
+                node.style.backgroundImage = "url('" + largeImage + "')";
+                node.style.backgroundRepeat="no-repeat";
+                node.style.height = '50vh';
+                document.getElementById("slider").appendChild(node);
 
-            // let name = document.createElement("p");
-            // node.appendChild (name);
-            // name.innerHTML= title;
-
-            // let item = document.createElement("p");
-            // node.appendChild (item);
-            // item.innerHTML= includedItem;
-
-            // let actualprice = document.createElement("p");
-            // node.appendChild (actualprice);
-            // actualprice.innerHTML= price;
+            }
+            else{
+              
+            }
 
         }
     
