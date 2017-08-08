@@ -158,7 +158,7 @@ var App = function () {
 			//    });
 			// }
 
-
+			// a listener for catehory event
 			$(".option").on("click", function (e) {
 				//getting the button id when clicking on the button
 				var target = e.target.value;
@@ -171,6 +171,9 @@ var App = function () {
 				//calling the initBBcall to call the api
 			});
 		}
+
+		// a listener for item button event
+
 	}, {
 		key: "addToCart",
 		value: function addToCart() {
@@ -289,6 +292,7 @@ var _class = function () {
                 var key = sessionStorage.getItem(sessionStorage.key(i));
                 this.total = this.total + sessionStorage.getItem(sessionStorage.key(i).qty);
                 console.log("total in cart" + this.total);
+                $(".counter").html(cartTotal);
             }
         }
     }]);

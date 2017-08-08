@@ -60,6 +60,7 @@ export default class{
                 var key = sessionStorage.getItem(sessionStorage.key(i));
                 this.total =  this.total + sessionStorage.getItem(sessionStorage.key(i).qty);
                 console.log("total in cart"+this.total);
+                $(".counter").html(cartTotal);
 
             }
         }

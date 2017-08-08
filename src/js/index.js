@@ -47,7 +47,7 @@ export default class App{
         //    });
 		// }
 		
-
+			// a listener for catehory event
         $(".option").on("click", (e) => {
 			//getting the button id when clicking on the button
 			let target = e.target.value;
@@ -62,6 +62,7 @@ export default class App{
 
 	}
 
+	// a listener for item button event
 	addToCart(){
 		// Listen for any click that happens on .atc when button is clicked then retrive value for sku and price
 		// init new productutil().addToCart() pass both sku and price
