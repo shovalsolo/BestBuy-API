@@ -15,7 +15,7 @@ export default class App{
 		this.category();
 		this.initBBCall();
 		this.x = new productutil();
-		this.showCart();
+		//this.showCart();
 		
 	}
 	

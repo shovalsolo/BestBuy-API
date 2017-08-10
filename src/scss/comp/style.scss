@@ -31,7 +31,7 @@ body{
 }
 
 .top{
-	background-color:#acc0b7;
+	background: -webkit-linear-gradient(#809f90, white ,#809f90);
 }
 
 .manufacturer{
@@ -51,7 +51,6 @@ button{
 	padding: 0;
 	border: none;
 	color:white;
-	
 }
 button:hover{
 		color:#204734;	
