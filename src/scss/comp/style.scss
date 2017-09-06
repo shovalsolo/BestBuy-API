@@ -21,9 +21,28 @@ body{
 	
 }
 
+.info{
+    display: none;
+    position: fixed;
+    margin-left: -250px;
+    overflow: auto;
+    background-color: white;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 0px 1px 5000px;
+    top: 40%;
+    left: 50%;
+    width: 500px;
+    .btnclose{
+        background: $red-b-c;
+    }
+
+    
+}
+
 .counter{
 	background-color:#204734;
 	color:white;
+    top: 1px;
 }
 
 .category{

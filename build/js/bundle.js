@@ -129,6 +129,8 @@ var App = function () {
 		this.x = new _productutil2.default();
 		//this.showCart();
 		this.createCart();
+		this.showinfo();
+		this.closeinfo();
 	}
 
 	_createClass(App, [{
@@ -222,6 +224,22 @@ var App = function () {
 		//will create a new line for 
 		value: function createCart() {
 			console.log("createCart test");
+		}
+	}, {
+		key: "showinfo",
+		value: function showinfo() {
+
+			$(".icon").click(function () {
+				$(".info").toggle();
+			});
+		}
+	}, {
+		key: "closeinfo",
+		value: function closeinfo() {
+
+			$(".btnclose").click(function () {
+				$(".info").toggle();
+			});
 		}
 	}]);
 

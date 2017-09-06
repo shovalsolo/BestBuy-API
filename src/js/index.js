@@ -8,6 +8,7 @@ import productutil from "./productutil";
 
 
 
+
 export default class App{
 	constructor(){
 		this.baseurl = "https://api.bestbuy.com/v1/products";
@@ -17,6 +18,8 @@ export default class App{
 		this.x = new productutil();
 		//this.showCart();
 		this.createCart();
+        this.showinfo();
+        this.closeinfo();
 		
 	}
 	
@@ -100,6 +103,24 @@ export default class App{
 	createCart(){
 		console.log("createCart test");
 	}
+    
+    
+    showinfo()  {  
+
+	    $(".icon").click(function(){
+	        $(".info").toggle();
+        });
+	    
+    }
+    
+    
+    closeinfo()  {  
+
+	    $(".btnclose").click(function(){
+	        $(".info").toggle();
+        });
+	    
+    }
 
 }
 let x = new App;
