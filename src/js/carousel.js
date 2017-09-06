@@ -41,8 +41,10 @@ export default function(obj){
                 node.appendChild(btn);
 
                 node.setAttribute("class","caro");
+                //style for the background
                 node.style.backgroundImage = "url('" + largeImage + "')";
                 node.style.backgroundRepeat="no-repeat";
+                node.style.backgroundPosition="center";
                 node.style.height = '50vh';
                 document.getElementById("slider").appendChild(node);
 
