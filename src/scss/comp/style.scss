@@ -80,4 +80,25 @@ button:hover{
 	padding :5px;
 }
 
+.slider{
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+    flex-wrap:wrap;
+    align-items: center;
+}
+
+.caro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    border: 1px solid black;
+    height: 10vh;
+    width: 30vw;
+    align-items: center;
+    margin: 1px;
+}
+
+
 

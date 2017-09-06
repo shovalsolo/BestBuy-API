@@ -13,6 +13,7 @@ export default function(obj){
             // $(".bxSlider").append(newElement);
             //---------------------------------------
             if (obj[i].includedItemList.length > 0 && obj[i].manufacturer !== null) {
+                //if the result from the API is not empty
 
                 let manufacturer = obj[i].manufacturer;
                 let largeImage = obj[i].largeImage;
@@ -22,8 +23,11 @@ export default function(obj){
                 let addToCartUrl = obj[i].addToCartUrl;
                 let price= obj[i].regularPrice;
                 let sku = obj[i].sku
+                
+            //saving all the parameters to populate of the product
 
                 let node=document.createElement("div");
+            //creating a new div to contain the info from API
                 
                 node.innerHTML = `
                 <h4 class="manufacturer"> ${manufacturer} </h4>

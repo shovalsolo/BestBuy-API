@@ -30,49 +30,53 @@ exports.default = function (obj) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-                value: true
+    value: true
 });
 
 exports.default = function (obj) {
 
-                for (var i = 0; i < obj.length; i++) {
+    for (var i = 0; i < obj.length; i++) {
 
-                                //-------------jquery----------------------
-                                // var newElement = document.createElement("div");
-                                // $(newElement).css("background", "url("+mediumImage+")");
-                                // $(newElement).append("<a class='Link' href="+url+"><p>"+title+"</p></a>");
-                                // $(newElement).append("<input type='button' class='btn' onclick='location.href="+addToCartUrl+" value='Add to cart'>");
-                                // $(newElement).addClass("pop");
-                                // $(".bxSlider").append(newElement);
-                                //---------------------------------------
-                                if (obj[i].includedItemList.length > 0 && obj[i].manufacturer !== null) {
+        //-------------jquery----------------------
+        // var newElement = document.createElement("div");
+        // $(newElement).css("background", "url("+mediumImage+")");
+        // $(newElement).append("<a class='Link' href="+url+"><p>"+title+"</p></a>");
+        // $(newElement).append("<input type='button' class='btn' onclick='location.href="+addToCartUrl+" value='Add to cart'>");
+        // $(newElement).addClass("pop");
+        // $(".bxSlider").append(newElement);
+        //---------------------------------------
+        if (obj[i].includedItemList.length > 0 && obj[i].manufacturer !== null) {
+            //if the result from the API is not empty
 
-                                                var manufacturer = obj[i].manufacturer;
-                                                var largeImage = obj[i].largeImage;
-                                                var includedItem = obj[i].includedItemList[0].includedItem;
+            var manufacturer = obj[i].manufacturer;
+            var largeImage = obj[i].largeImage;
+            var includedItem = obj[i].includedItemList[0].includedItem;
 
-                                                var url = obj[i].url;
-                                                var addToCartUrl = obj[i].addToCartUrl;
-                                                var price = obj[i].regularPrice;
-                                                var sku = obj[i].sku;
+            var url = obj[i].url;
+            var addToCartUrl = obj[i].addToCartUrl;
+            var price = obj[i].regularPrice;
+            var sku = obj[i].sku;
 
-                                                var node = document.createElement("div");
+            //saving all the parameters to populate of the product
 
-                                                node.innerHTML = "\n                <h4 class=\"manufacturer\"> " + manufacturer + " </h4>\n                <h6 class=\"includedItem\"> " + includedItem + " </h6>\n                <h5 class=\"price\"> " + price + " </h5>";
-                                                var btn = document.createElement("button");
-                                                btn.setAttribute("class", "atc");
-                                                btn.innerHTML = "Add to cart";
-                                                btn.setAttribute("data-sku", sku);
-                                                btn.setAttribute("data-price", price);
-                                                node.appendChild(btn);
+            var node = document.createElement("div");
+            //creating a new div to contain the info from API
 
-                                                node.setAttribute("class", "caro");
-                                                node.style.backgroundImage = "url('" + largeImage + "')";
-                                                node.style.backgroundRepeat = "no-repeat";
-                                                node.style.height = '50vh';
-                                                document.getElementById("slider").appendChild(node);
-                                } else {}
-                }
+            node.innerHTML = "\n                <h4 class=\"manufacturer\"> " + manufacturer + " </h4>\n                <h6 class=\"includedItem\"> " + includedItem + " </h6>\n                <h5 class=\"price\"> " + price + " </h5>";
+            var btn = document.createElement("button");
+            btn.setAttribute("class", "atc");
+            btn.innerHTML = "Add to cart";
+            btn.setAttribute("data-sku", sku);
+            btn.setAttribute("data-price", price);
+            node.appendChild(btn);
+
+            node.setAttribute("class", "caro");
+            node.style.backgroundImage = "url('" + largeImage + "')";
+            node.style.backgroundRepeat = "no-repeat";
+            node.style.height = '50vh';
+            document.getElementById("slider").appendChild(node);
+        } else {}
+    }
 };
 
 var _index = require("./index");
@@ -122,6 +126,7 @@ var App = function () {
 		this.initBBCall();
 		this.x = new _productutil2.default();
 		//this.showCart();
+		this.createCart();
 	}
 
 	_createClass(App, [{
@@ -172,11 +177,11 @@ var App = function () {
 				//calling the initBBcall to call the api
 			});
 		}
-
-		// a listener for item button event
-
 	}, {
 		key: "addToCart",
+
+
+		// a listener for item button event
 		value: function addToCart() {
 			var _this3 = this;
 
@@ -207,6 +212,14 @@ var App = function () {
 			// 	product.price = $(x.target).data("price");
 			// 	product.addToCart();
 			// });
+		}
+	}, {
+		key: "createCart",
+
+
+		//will create a new line for 
+		value: function createCart() {
+			console.log("createCart test");
 		}
 	}]);
 

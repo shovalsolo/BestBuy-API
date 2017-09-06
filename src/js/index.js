@@ -16,6 +16,7 @@ export default class App{
 		this.initBBCall();
 		this.x = new productutil();
 		//this.showCart();
+		this.createCart();
 		
 	}
 	
@@ -33,7 +34,7 @@ export default class App{
 			console.log("warning Christopher Robins... Error");
 			console.log(error);
 		});
-	}
+	};
 
 	category(){
 		// Listen for click on category .category when li is clicked then retrive value for sku and price
@@ -61,7 +62,7 @@ export default class App{
 			//calling the initBBcall to call the api
 		});
 
-	}
+	};
 
 	// a listener for item button event
 	addToCart(){
@@ -93,6 +94,11 @@ export default class App{
 		// 	product.addToCart();
 		// });
 
+	};
+
+	//will create a new line for 
+	createCart(){
+		console.log("createCart test");
 	}
 
 }
