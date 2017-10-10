@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Babel Test</title>
+        <link rel="stylesheet" type="text/css" href="build/css/style.css"/>
+        <!-- <link rel="stylesheet" href="path/to/wallop.css"> -->
+    </head>
+    <body>
+        <main>
+            <section>
+            <div class="top">
+                
+                <div class="cart flex flex-jus-spa-bet  ">
+                    <div class="info">
+                        <div class="flex flex-jus-end">
+                            <input type="button" value="X" class="btnclose" >
+                            <br><br>
+                        </div>
+                        <div class="pad-sml">
+                            Total Items: <span class="all-quantity"></span> 
+                        </div>
+                        
+                        <div class="pad-sml">
+                            Total Cart: <span class="total-cart"></span>
+                        </div>
+                        
+                        <div class="pad-sml">
+                            SKU: <span class="sku"></span></div>
+                        
+                        <div class="pad-sml">
+                            Total Item Quantity:  <input type="text" class="quantity" value="">
+                        </div>
+                        
+                        <div class="pad-sml">
+                            Item Total Amount: <span class="total-amount"></span>
+                        </div>
+          
+                    </div>
+                    <div >
+                    <p class="counter bor-radius text-ali-c max-wid-ex-sml"></p>
+                    <img class="icon" src="build/assets/green-cart.png" >
+                </div>
+                    
+                </div>
+                <div class="flex flex-dir-col flex-ali-cen pad-bottom-lar">
+                <h1 class="pad-bottom-med-sml font-roboto">WELCOME TO BESTBUY STORE</h1>
+                <p class="pad-bottom-med font-roboto gcolor">SHOP HERE, FOR SOME REASON</p>
+                    <a href="#shop" class="btnShop ">SHOP NOW</a>
+                </div>
+            </div>
+            <div class="message flex flex-dir-col flex-ali-cen text-ali-c pad-sml">
+                <h2 class="pad-up-down font-roboto">WE WILL SELL THE SAME STUFF AS BESTBUY, BUT WE'RE<span> BETTER</span></h2>
+                <p class="pad-up-down gcolor font-roboto">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                     when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                     It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. 
+                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
+                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </p>
+            </div>
+            </section>
+            <!--Rendering the categories from bestbuy API-->
+                <div class="category flex flex-jus-spa-aro pad-up-down">
+                <button class="option" value="((categoryPath.id=abcat0502000))">Laptops</button>
+                <button class="option" value="((categoryPath.id=pcmcat209400050001))">Cell Phones</button>
+                <button class="option" value="((categoryPath.id=abcat0101000))">Television</button>
+                <button class="option" value="((categoryPath.id=abcat0204000))">Headphones</button>
+                </div>
+            <div class="content"> 
+                <a name="shop"></a> 
+                <div id="slider" class="slider">
+                <!-- This div is holding the data from the API -->
+
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer flex flex-dir-col flex-ali-cen pad-up-down-lar">
+                <h2 class="pad-bottom-med-sml font-roboto">SIGN UP FOR UPDATES</h2>
+                <P class="pad-bottom-med font-roboto">WE WILL NOT STOP EMAILING YOU</P>
+                <div class="sub-box bgcw bor-radius ">
+                    <form name="form1">
+                        <input class="subfield no-border" type="text" name="subscribe" value="Your Email">
+                        <input class="subbtn border-right-radius wcolor" type="submit" name="subbtn" value="SING UP" onclick="ValidateEmail(document.form1.subscribe)"/>
+                    </form>
+                </div>
+            </div>
+        </footer>
+        <script src="build/js/email-validation.js"></script>
+        <!--<script src="js/show-info.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="build/js/bundle.js"></script>
+        
+       
+    </body>
+</html>
