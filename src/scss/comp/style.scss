@@ -57,10 +57,6 @@ body{
 	padding: 0rem 0rem 0.5rem 0rem;
 }
 
-.includedItem{
-	padding: 0rem 0rem 11rem 0em;
-}
-
 .price{
 	padding: 0rem 0rem 0.5rem 0rem;
 }
@@ -123,7 +119,9 @@ button:hover{
     
     height: 10vh;
     width: 25vw;
+    padding: 0rem 0rem 11rem 0em;
+    text-align: center;
+    font-size: 11px;
 }
-
 
 
