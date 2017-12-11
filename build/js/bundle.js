@@ -70,7 +70,7 @@ exports.default = function (obj) {
             btn.setAttribute("data-price", price);
             node.appendChild(btn);
 
-            node.setAttribute("class", "caro flex flex-center");
+            node.setAttribute("class", "caro");
             //style for the background
             node.style.backgroundImage = "url('" + largeImage + "')";
             node.style.backgroundRepeat = "no-repeat";

@@ -2,11 +2,9 @@
 
 import request from "./bestbuy";
 import carousel from "./carousel";
-//import * as y from "./productutil";
 import productutil from "./productutil";
+//import * as y from "./productutil";
 //import categoryutil from "./categoryutil";
-
-
 
 
 export default class App{
